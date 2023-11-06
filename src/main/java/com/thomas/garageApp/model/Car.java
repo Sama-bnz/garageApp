@@ -1,4 +1,10 @@
 package com.thomas.garageApp.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Car {
 
     public enum Color {
@@ -7,10 +13,13 @@ public class Car {
         GREEN,
         YELLOW
     }
+    @Id
     private long id;
     private String model;
     private String brand;
-    private int yeah;
+
+    @Column(name= "released_year")
+    private int year;
     private Color color;
     public Car() {
 
@@ -20,7 +29,7 @@ public class Car {
         this.id = id;
         this.model = model;
         this.brand = brand;
-        this.yeah = yeah;
+        this.year = year;
         this.color = color;
     }
 
@@ -49,12 +58,12 @@ public class Car {
         this.brand = brand;
     }
 
-    public int getYeah() {
-        return yeah;
+    public int getYear() {
+        return year;
     }
 
     public void setYeah(int yeah) {
-        this.yeah = yeah;
+        this.year = year;
     }
 
     public Color getColor() {
